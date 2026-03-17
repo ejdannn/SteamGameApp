@@ -1,0 +1,125 @@
+.game-card {
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  border-color: var(--accent);
+}
+
+.game-card-image-wrap {
+  position: relative;
+  aspect-ratio: 460/215;
+  overflow: hidden;
+}
+
+.game-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.game-card:hover .game-card-image {
+  transform: scale(1.03);
+}
+
+.game-card-overlay {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.score-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.badge-high { background: rgba(87, 242, 135, 0.85); color: #0a2218; }
+.badge-mid  { background: rgba(254, 231, 92, 0.85); color: #2a2000; }
+.badge-low  { background: rgba(237, 66, 69, 0.85); color: white; }
+
+.save-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.save-btn:hover { background: rgba(0,0,0,0.85); transform: scale(1.1); }
+.save-btn-saved { color: var(--accent-red); }
+
+.game-card-body {
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.game-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.game-tag {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.game-card-footer {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.price-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.price-free { color: var(--accent-green); }
+
+.price-discount {
+  font-size: 0.75rem;
+  background: var(--accent-green);
+  color: #0a2218;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}

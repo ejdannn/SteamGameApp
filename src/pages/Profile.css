@@ -1,0 +1,172 @@
+.profile-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.profile-guest {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.profile-guest h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.profile-guest p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.profile-guest-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.profile-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.profile-email {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.profile-header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.profile-section {
+  padding: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.prefs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mini-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mini-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-slider-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mini-slider-value {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mini-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mini-endpoint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  min-width: 60px;
+  white-space: nowrap;
+}
+
+.mini-endpoint:last-child {
+  text-align: right;
+}
+
+.section-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Saved games */
+.profile-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.saved-games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.saved-game-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.saved-game-row:hover { background: var(--bg-elevated); }
+
+.saved-game-thumb {
+  width: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.saved-game-id {
+  flex: 1;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.saved-game-arrow {
+  color: var(--text-muted);
+}

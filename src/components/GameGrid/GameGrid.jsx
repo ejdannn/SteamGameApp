@@ -1,7 +1,7 @@
 import GameCard from '../GameCard/GameCard'
 import './GameGrid.css'
 
-export default function GameGrid({ games, loading, error }) {
+export default function GameGrid({ games, loading, error, onHide }) {
   if (loading) {
     return (
       <div className="game-grid-status">
@@ -37,7 +37,7 @@ export default function GameGrid({ games, loading, error }) {
   return (
     <div className="game-grid">
       {games.map(game => (
-        <GameCard key={game.appid} game={game} />
+        <GameCard key={game.appid} game={game} onHide={onHide} />
       ))}
     </div>
   )

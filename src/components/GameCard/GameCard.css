@@ -47,26 +47,46 @@
 .badge-mid  { background: rgba(254, 231, 92, 0.85); color: #2a2000; }
 .badge-low  { background: rgba(237, 66, 69, 0.85); color: white; }
 
-.save-btn {
+.game-card-actions {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: rgba(0,0,0,0.6);
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
-  transition: background 0.15s, transform 0.15s;
+  flex-direction: column;
+  gap: 0.3rem;
+  opacity: 0;
+  transition: opacity 0.15s;
 }
 
-.save-btn:hover { background: rgba(0,0,0,0.85); transform: scale(1.1); }
-.save-btn-saved { color: var(--accent-red); }
+.game-card:hover .game-card-actions {
+  opacity: 1;
+}
+
+.card-action-btn {
+  background: rgba(0,0,0,0.75);
+  border: none;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.card-action-btn:hover { background: rgba(0,0,0,0.95); }
+
+.save-btn-saved {
+  background: rgba(87, 242, 135, 0.25);
+  color: var(--accent-green);
+  border: 1px solid rgba(87, 242, 135, 0.4);
+}
+
+.hide-btn:hover {
+  background: rgba(237, 66, 69, 0.7);
+}
 
 .game-card-body {
   padding: 0.85rem 1rem;

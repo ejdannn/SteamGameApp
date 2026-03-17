@@ -16,7 +16,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-brand">
-          🎮 SteamRec
+          SteamRec
         </NavLink>
         <div className="navbar-links">
           <NavLink to="/" end className="nav-link">Discover</NavLink>

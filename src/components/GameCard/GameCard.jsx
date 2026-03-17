@@ -21,7 +21,17 @@ function PriceTag({ price, isFree, discount }) {
   )
 }
 
-export default function GameCard({ game }) {
+// Cache game name+image locally so Profile page can display them
+function cacheGameMeta(appid, name, header_image) {
+  try {
+    const raw = localStorage.getItem('game_meta_cache') || '{}'
+    const cache = JSON.parse(raw)
+    cache[appid] = { name, header_image }
+    localStorage.setItem('game_meta_cache', JSON.stringify(cache))
+  } catch {}
+}
+
+export default function GameCard({ game, onHide }) {
   const navigate = useNavigate()
   const { user, isGameSaved, toggleSavedGame } = useAuth()
   const [saving, setSaving] = useState(false)
@@ -34,8 +44,14 @@ export default function GameCard({ game }) {
       return
     }
     setSaving(true)
+    cacheGameMeta(game.appid, game.name, game.header_image)
     await toggleSavedGame(game.appid)
     setSaving(false)
+  }
+
+  function handleHide(e) {
+    e.stopPropagation()
+    onHide?.(game.appid)
   }
 
   return (
@@ -51,14 +67,23 @@ export default function GameCard({ game }) {
         <div className="game-card-overlay">
           <ScoreBadge score={game.score ?? 50} />
         </div>
-        <button
-          className={`save-btn ${saved ? 'save-btn-saved' : ''}`}
-          onClick={handleSave}
-          disabled={saving}
-          title={saved ? 'Remove from saved' : 'Save game'}
-        >
-          {saved ? '♥' : '♡'}
-        </button>
+        <div className="game-card-actions">
+          <button
+            className={`card-action-btn save-btn ${saved ? 'save-btn-saved' : ''}`}
+            onClick={handleSave}
+            disabled={saving}
+            title={saved ? 'Remove from saved' : 'Save game'}
+          >
+            {saved ? 'Saved' : 'Save'}
+          </button>
+          <button
+            className="card-action-btn hide-btn"
+            onClick={handleHide}
+            title="Not interested"
+          >
+            Hide
+          </button>
+        </div>
       </div>
 
       <div className="game-card-body">

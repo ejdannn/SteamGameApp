@@ -44,7 +44,7 @@ export default function GameDetail() {
 
   if (error) return (
     <div className="detail-error">
-      <p>⚠️ {error}</p>
+      <p>Error: {error}</p>
       <button className="btn btn-ghost" onClick={() => navigate(-1)}>← Back</button>
     </div>
   )

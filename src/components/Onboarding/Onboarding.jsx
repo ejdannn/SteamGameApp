@@ -10,8 +10,6 @@ const QUESTIONS = [
     question: 'How do you like to play?',
     leftLabel: 'Deep Strategy',
     rightLabel: 'Pure Action',
-    leftIcon: '♟️',
-    rightIcon: '⚔️',
     description: 'Slow tactical thinking vs fast-paced combat',
   },
   {
@@ -20,8 +18,6 @@ const QUESTIONS = [
     question: 'How much do you love RPGs?',
     leftLabel: 'Not for me',
     rightLabel: 'Love them',
-    leftIcon: '😐',
-    rightIcon: '🗡️',
     description: 'Character builds, story-driven RPGs, skill trees',
   },
   {
@@ -30,8 +26,6 @@ const QUESTIONS = [
     question: 'How do you feel about horror?',
     leftLabel: 'Avoid it',
     rightLabel: 'Love it',
-    leftIcon: '🙈',
-    rightIcon: '👻',
     description: 'Survival horror, psychological thrillers, dark atmosphere',
   },
   {
@@ -40,8 +34,6 @@ const QUESTIONS = [
     question: 'Do you enjoy building and managing things?',
     leftLabel: 'Not really',
     rightLabel: 'Love it',
-    leftIcon: '🤷',
-    rightIcon: '🏗️',
     description: 'City builders, farming sims, base building, management games',
   },
   {
@@ -50,8 +42,6 @@ const QUESTIONS = [
     question: 'Solo adventures or playing with others?',
     leftLabel: 'Solo only',
     rightLabel: 'Multiplayer',
-    leftIcon: '🎮',
-    rightIcon: '👥',
     description: 'Single-player story vs online multiplayer / co-op',
   },
   {
@@ -60,8 +50,6 @@ const QUESTIONS = [
     question: 'How long do you want your games?',
     leftLabel: 'Short & sweet',
     rightLabel: 'Hundreds of hours',
-    leftIcon: '⚡',
-    rightIcon: '🌍',
     description: '2–5 hour experiences vs massive open worlds',
   },
   {
@@ -70,8 +58,6 @@ const QUESTIONS = [
     question: 'How hard should your games be?',
     leftLabel: 'Casual & relaxing',
     rightLabel: 'Punishing challenge',
-    leftIcon: '🌸',
-    rightIcon: '💀',
     description: 'Chill games vs souls-likes and brutal challenges',
   },
   {
@@ -80,8 +66,6 @@ const QUESTIONS = [
     question: 'How do you feel about game prices?',
     leftLabel: 'Free only',
     rightLabel: 'Price is no issue',
-    leftIcon: '💸',
-    rightIcon: '💳',
     description: 'Free-to-play only vs happy to buy premium games',
   },
 ]
@@ -96,7 +80,6 @@ function SliderQuestion({ question, value, onChange }) {
       </div>
       <div className="sq-slider-row">
         <span className="sq-endpoint">
-          <span className="sq-icon">{question.leftIcon}</span>
           <span className="sq-end-label">{question.leftLabel}</span>
         </span>
         <SliderPrimitive.Root
@@ -113,7 +96,6 @@ function SliderQuestion({ question, value, onChange }) {
           <SliderPrimitive.Thumb className="slider-thumb" aria-label={question.label} />
         </SliderPrimitive.Root>
         <span className="sq-endpoint sq-endpoint-right">
-          <span className="sq-icon">{question.rightIcon}</span>
           <span className="sq-end-label">{question.rightLabel}</span>
         </span>
       </div>
@@ -159,7 +141,6 @@ export default function Onboarding({ onComplete, onSkip }) {
     return (
       <div className="onboarding-screen">
         <div className="onboarding-welcome">
-          <div className="welcome-icon">🎮</div>
           <h1>Find Your Next Favorite Game</h1>
           <p>Answer 8 quick questions and we&apos;ll recommend Steam games tailored to your taste.</p>
           <p className="welcome-sub">Takes about 1 minute. Your preferences are saved to your profile.</p>
@@ -180,7 +161,6 @@ export default function Onboarding({ onComplete, onSkip }) {
     return (
       <div className="onboarding-screen">
         <div className="onboarding-welcome">
-          <div className="welcome-icon">🎯</div>
           <h1>You&apos;re all set!</h1>
           <p>We&apos;ve got your preferences. Time to find some great games.</p>
           <button className="btn btn-primary btn-lg" onClick={handleFinish}>
@@ -215,7 +195,7 @@ export default function Onboarding({ onComplete, onSkip }) {
             ← Back
           </button>
           <button className="btn btn-primary" onClick={handleNext}>
-            {step === totalSteps ? 'Finish ✓' : 'Next →'}
+            {step === totalSteps ? 'Finish' : 'Next'}
           </button>
         </div>
       </div>

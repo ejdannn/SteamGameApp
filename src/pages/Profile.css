@@ -161,12 +161,15 @@
   object-fit: cover;
 }
 
-.saved-game-id {
+.saved-game-name {
   flex: 1;
-  color: var(--text-muted);
+  color: var(--text);
   font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .saved-game-arrow {
-  color: var(--text-muted);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
 }

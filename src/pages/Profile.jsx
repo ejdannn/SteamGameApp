@@ -17,6 +17,36 @@ const PREF_LABELS = {
   priceSensitivity: { label: 'Budget', left: 'Free only', right: 'Any price' },
 }
 
+function getGameMetaCache() {
+  try { return JSON.parse(localStorage.getItem('game_meta_cache') || '{}') } catch { return {} }
+}
+
+function SavedGamesList({ appids, onNavigate }) {
+  const metaCache = getGameMetaCache()
+  return (
+    <div className="saved-games-list">
+      {appids.map(appid => {
+        const meta = metaCache[appid]
+        return (
+          <div
+            key={appid}
+            className="saved-game-row"
+            onClick={() => onNavigate(`/game/${appid}`)}
+          >
+            <img
+              src={meta?.header_image || `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`}
+              alt={meta?.name || `Game ${appid}`}
+              className="saved-game-thumb"
+            />
+            <span className="saved-game-name">{meta?.name || `App #${appid}`}</span>
+            <span className="saved-game-arrow">View</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 function MiniSlider({ prefKey, value, onChange }) {
   const info = PREF_LABELS[prefKey]
   return (
@@ -152,7 +182,7 @@ export default function Profile() {
                 Cancel
               </button>
               <button className="btn btn-primary" onClick={savePrefs} disabled={saving}>
-                {saving ? 'Saving...' : saved ? '✓ Saved!' : 'Save Preferences'}
+                {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Preferences'}
               </button>
             </div>
           )}
@@ -161,23 +191,7 @@ export default function Profile() {
         {user && (profile?.saved_games?.length > 0) && (
           <div className="profile-section card">
             <h2>Saved Games ({profile.saved_games.length})</h2>
-            <div className="saved-games-list">
-              {profile.saved_games.map(appid => (
-                <div
-                  key={appid}
-                  className="saved-game-row"
-                  onClick={() => navigate(`/game/${appid}`)}
-                >
-                  <img
-                    src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`}
-                    alt="Game"
-                    className="saved-game-thumb"
-                  />
-                  <span className="saved-game-id">App #{appid}</span>
-                  <span className="saved-game-arrow">→</span>
-                </div>
-              ))}
-            </div>
+            <SavedGamesList appids={profile.saved_games} onNavigate={navigate} />
           </div>
         )}
       </div>
